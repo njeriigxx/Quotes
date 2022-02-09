@@ -1,0 +1,26 @@
+.maincontent {
+  background-color: black;
+}
+.p {
+
+  color: aliceblue;
+  font-family: Quintessential;
+}
+h4 {
+  color: aliceblue;
+}
+
+
+#less {
+    display: none;
+  }
+  
+  body {
+    
+    background-color: rgb(20, 16, 17);
+    /* font-family: 'IBM Plex Sans Thai Looped', cursive; */
+  }
+  
+  
+  
+  

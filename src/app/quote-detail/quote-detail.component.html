@@ -1,0 +1,15 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+
+<div class="container-fluid" >
+  
+  <p style="font-family: 'Quintessential', cursive;"><small class="text-muted"> Author :</small> {{quote.author}}.</p>
+  <p style="font-family: 'Quintessential', cursive;"><small class="text-muted">Uploaded by: </small> {{quote.userName}}.</p>
+  <p style="font-family: 'Quintessential', cursive;"><small class="text-muted">Pinned - </small> {{quote.datePosted|datePassed}} days ago.</p> 
+  <p style="font-family: 'Quintessential', cursive; "> <span class="like">{{quote.upvote}} Upvotes .</span><br><span class="dovt">{{quote.downvote}} Downvotes.</span></p>
+  
+  <i style=" color:red;"class="fas fa-trash-alt"  (click)='quoteDeletion(true)'></i>
+
+
+</div>

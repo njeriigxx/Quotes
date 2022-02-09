@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="quote-form.component.css">
+ <br>
+<br>
+<div class="form">
+<h2 style="font-family: 'Pacifico', cursive; font-size: 70px; text-decoration: underline; color: white;" class="text-center"> Random Tech Quotes. </h2> <br><br>
+<h4  style="color: white; font-size: 43px;">Quote Form</h4> <br>
+<div class="container-fluid">
+  
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm" >
+
+    <div class="modal-body "  style="background-color: rgb(49, 47, 47);">
+
+      <div class="form-group"  style="color: white; font-size: 30px;">
+        <label for=""style="  font-family: ' Indie Flower', cursive;">Your Name</label>
+        <input type="text" name="userName" id="userName" class="form-control" placeholder="Please input your name..."
+          required #userName='ngModel' [(ngModel)]="newQuote.userName">
+        <div [hidden]="userName.value||userName.pristine" class="alert alert-danger">
+          <p>Name is required here.</p>
+        </div>
+      <div class="modal-body">
+          <div class="form-group"  style="color: white; font-size: 30px;">
+            <label for="" style="font-family: 'Indie Flower', cursive;"> Quote Author</label>
+            <input type="text" name="author" id="author" class="form-control" placeholder="Please input authors name..."
+              required #author='ngModel' [(ngModel)]="newQuote.author">
+            <div [hidden]="author.value||author.pristine" class="alert alert-danger">
+              <p>Author is required here</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="modal-body">
+          <div class="form-group"  style="color: white; font-size: 30px;">
+            <label for=""style="font-family: 'Indie Flower', cursive;">Quote</label>
+            <textarea class="form-control" name="quote" id="quote" rows="3" placeholder="Please input Quote" required
+              #quote='ngModel' [(ngModel)]="newQuote.quote"></textarea>
+            <div [hidden]="quote.value||quote.pristine" class="alert alert-danger">
+              <p>Quote is required here.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-dark"style="font-family: 'Indie Flower', cursive;"  style="color: white; font-size: 25px;">Add Quote</button>
+    </div>
+  </form>
+</div>
+</div>

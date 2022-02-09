@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quote.component.css">
+
+
+<div class="maincontent ">
+  
+    <nav class="nav justify-content-center navbar-fixed-top navbar-light bg-secondary">
+        <div class="navbar-nav ml-auto">
+            <app-quote-form  (addQuote)='addNewQuote($event)'></app-quote-form>
+        </div>    
+      
+    </nav>
+    <div class="quotes" style="  font-family: 'Quintessential', "  >
+      <div class="container" style="background-image: url();">
+        <h5 style="font-family: Pacifico; font-size: 60px; text-align: center; text-decoration: underline;" >Inspirational Tech Quotes. </h5> <br><br>
+       <p class="p">When you’re on top of the world you feel motivated to do a great job at work. However we all have those days when we need a little bit of extra motivation. Here are the top 10 tech quotes to inspire you…. or at the very least, put a smile on your face!</p>
+         <br><br> 
+         
+
+        
+<div class="col-sm-9 " style="font-family: Quintessential; font-size: 30px;" >
+  
+            <div class="all-cards row row-cols-1 row-cols-md-5 g-4 " >
+            <div class="card bg-light mb-3" *ngFor="let quote of quotes;let i=index" style="width: 26rem;"  >
+                <div class="card-body">
+                    <h5 class="card-title" >{{quote.id}} <br><i class="fas  fa-quote-left    "></i>   <br> <div id = {{i}} class="header" style="font-family: Quintessential;">
+                      <h5 *ngIf='quote.upvote !== findMax() || quote.upvote === 0'>{{ quote.quote }}</h5>
+                      <div *ngIf='quote.upvote === findMax() && quote.upvote > 0' >
+                          <h5 appHighlight>{{ quote.quote }}</h5>
+                      </div>
+                    </div> <br><i class="fas  fa-quote-right    "><br></i> <br>{{quote.datePosted|date:'short'}}</h5><button id="more"(click)='toggleDetail(i)'class="btn btn-secondary">See More</button>
+                    <div class="card-text"*ngIf="quote.showQuoteDetail" style="font-family: Quintessential;" >
+                      <button id="less" (click)='toggleDetail(i)'class="btn btn-info" style="font-family: Quintessential;">see less</button>
+                      <br><br>
+                      <p style="font-family: Quintessential;"><i class="far fa-thumbs-up " (click)='upvoteFunc(i)'></i>Like  <i style="text-indent: 50px" (click)='downvoteFunc(i)' class="far fa-thumbs-down    "></i>Dislike</p>
+                      <app-quote-detail [quote]='quote' (isDeleted)='deleteQuote($event,i)'></app-quote-detail>
+  
+                  </div>
+              </div>
+          </div>
+          </div>
+      </div>
+</div>
+    </div>
+
